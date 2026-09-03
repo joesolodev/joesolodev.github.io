@@ -23,7 +23,18 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--ground);
+  /* The blueprint grid belongs to the whole site, not just the hero. Fixed
+     attachment so it reads as paper the content sits on rather than
+     something that scrolls with a section. The 120px pass is the heavier
+     rule every fifth line, as on the banners. */
+  background-color: var(--ground);
+  background-image:
+    linear-gradient(var(--cyan-faint) 1px, transparent 1px),
+    linear-gradient(90deg, var(--cyan-faint) 1px, transparent 1px),
+    linear-gradient(rgba(120, 190, 255, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 190, 255, 0.09) 1px, transparent 1px);
+  background-size: 24px 24px, 24px 24px, 120px 120px, 120px 120px;
+  background-attachment: fixed;
   color: var(--text);
   font-family: "Outfit", system-ui, -apple-system, sans-serif;
   font-size: 15px;
@@ -191,16 +202,9 @@ code {
 
 .grid-bg { position: relative; overflow: hidden; }
 
-.grid-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(var(--cyan-faint) 1px, transparent 1px),
-    linear-gradient(90deg, var(--cyan-faint) 1px, transparent 1px);
-  background-size: 24px 24px;
-  pointer-events: none;
-}
+/* The grid now lives on <body> and covers every page, so the hero no longer
+   paints its own - two copies at slightly different offsets read as moire.
+   The class stays for the stacking context .grid-bg > * relies on. */
 
 .grid-bg > * { position: relative; }
 
