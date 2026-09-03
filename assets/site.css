@@ -612,3 +612,13 @@ code {
   .hero-inner { gap: 36px; }
   .panel-fig { width: 100%; }
 }
+
+/* Real panel captures. Native width (250px) so the UI text stays crisp -
+   scaling a screenshot of 11px type makes it unreadable. */
+.shot {
+  display: block;
+  width: 100%;
+  border: 1px solid #3b3b3b;
+  border-radius: 4px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4);
+}
