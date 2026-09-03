@@ -351,6 +351,18 @@ code {
   font-size: 11.5px;
 }
 
+/* The selected engine in the Checking-for toggle, and the Check button.
+   Same blue as the panel's real primary action. */
+.bp-btn-on { background: #4772b3; color: #fff; font-weight: 500; }
+.bp-check {
+  background: #4772b3;
+  border-radius: 3px;
+  padding: 7px;
+  text-align: center;
+  color: #fff;
+  font-weight: 500;
+}
+
 .bp-export-off { background: #2a2a2a; border-radius: 3px; padding: 7px; text-align: center; color: #6f6f6f; }
 .bp-export-on { background: #4772b3; border-radius: 3px; padding: 7px; text-align: center; color: #fff; font-weight: 500; }
 .bp-note { color: #8a8a8a; font-size: 11px; text-align: center; }

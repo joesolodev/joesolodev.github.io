@@ -124,10 +124,11 @@
 
       <ol class="steps">
         <li>Click your character&rsquo;s <strong>skeleton</strong> (or your prop&rsquo;s <strong>mesh</strong>).</li>
+        <li>Under <strong>Checking for</strong>, pick <strong>Unreal</strong> or <strong>Unity</strong>.</li>
         <li>Press <strong>Check</strong>.</li>
         <li>Read the list. Red will break; yellow is worth a look.</li>
         <li>Press a fix button, or follow the steps under <strong>How to fix it</strong>.</li>
-        <li>When it says <strong>Ready for Unreal</strong>, press <strong>Export</strong>.</li>
+        <li>When it says <strong>Ready</strong>, press <strong>Export</strong>.</li>
       </ol>
 
       <p>That is the whole tool. Everything below is detail.</p>
@@ -139,14 +140,40 @@
       <h2>Select and Check</h2>
 
       <p>
-        The main panel. Select something, press <strong>Check</strong>, and you
-        get a list.
+        The main panel. Select something, choose the engine you are exporting
+        to, press <strong>Check</strong>, and you get a list.
+      </p>
+
+      <p>
+        The engine toggle sits at the top, above <strong>Check</strong>,
+        because it changes what every finding says &mdash; not just the export
+        settings. Switch it and the same file is judged against the other
+        engine, in that engine&rsquo;s own terms.
       </p>
 
       <div class="legend">
         <div><span class="swatch sw-error"></span> <strong>Red</strong> &mdash; breaks the export</div>
         <div><span class="swatch sw-warn"></span> <strong>Yellow</strong> &mdash; worth a look</div>
         <div><span class="swatch sw-ok"></span> <strong>Green</strong> &mdash; done</div>
+      </div>
+
+      <div class="panel-fig" style="margin:32px 0;width:396px">
+        <div class="figlabel">Fig. 1 &mdash; the top of the panel</div>
+        <div class="bpanel">
+          <div class="bp-head"><span class="caret">&#9662;</span> Shipshape</div>
+          <div class="bp-obj"><span class="dot">&#9673;</span> GameRig</div>
+          <div class="bp-note" style="text-align:left">Checking for</div>
+          <div class="bp-btns">
+            <span class="bp-btn">Unity</span>
+            <span class="bp-btn bp-btn-on">Unreal</span>
+          </div>
+          <div class="bp-check">Check</div>
+          <div class="bp-note" style="text-align:left">Found 1 to fix and 2 to look at</div>
+          <div class="bp-export-off">Export for Unreal</div>
+          <div class="bp-btns">
+            <span class="bp-btn">&#9662; Hide details</span>
+          </div>
+        </div>
       </div>
 
       <p>Each finding shows:</p>
@@ -166,13 +193,28 @@
         intentional</li>
       </ul>
 
+      <p>
+        Above the list is a one-line summary &mdash; <em>&ldquo;Found 1 to fix
+        and 2 to look at&rdquo;</em> &mdash; then <strong>Fix All</strong> and
+        the <strong>Export</strong> button. They sit above the findings on
+        purpose: on a rig with a dozen warnings, a button underneath them all
+        is several screens away.
+      </p>
+
+      <p>
+        Every finding collapses to its header row, and
+        <strong>Hide details</strong> rolls up the whole list at once, so a
+        long result can be read as a list of headlines and opened only where
+        you want it. What you collapse stays collapsed when you check again.
+      </p>
+
       <div class="panel-fig" style="margin:32px 0;width:396px">
         <div class="figlabel">Fig. 2 &mdash; a finding</div>
         <div class="bpanel">
           <div class="bp-find">
             <div class="title">
               <span class="swatch sw-error"></span>
-              <span class="name name-error">One root bone</span>
+              <span class="name name-error">&#9662; One root bone</span>
             </div>
             <div class="body body-error">
               3 bones sit at the top with no parent (pelvis, ik_foot_root,
@@ -218,7 +260,7 @@
     </section>
 
     <section id="symptoms">
-      <h2>Something looks wrong in Unreal</h2>
+      <h2>Something looks wrong in the engine</h2>
 
       <p>
         Work backwards. You imported something, it looks wrong, and you do not
@@ -234,7 +276,7 @@
         <li>My mesh is spiky, or parts are stuck at the origin</li>
         <li>It imported in T-pose and won&rsquo;t animate</li>
         <li>There are extra bones I didn&rsquo;t make</li>
-        <li>Unreal said &ldquo;multiple roots&rdquo;</li>
+        <li>The engine said &ldquo;multiple roots&rdquo;</li>
         <li>The model looks inside-out or see-through</li>
         <li>I can walk through the model</li>
         <li>A camera or light came through with it</li>
@@ -242,7 +284,9 @@
 
       <p>
         Shipshape shows the checks that cause that symptom, and runs them on
-        your file.
+        your file. The panel is titled for whichever engine you picked &mdash;
+        <em>Something looks wrong in Unity</em> &mdash; and the explanations
+        follow it.
       </p>
 
       <div class="callout">
@@ -261,6 +305,14 @@
       <h2>What it checks</h2>
 
       <p>Twenty-five checks. Every one of them explains itself.</p>
+
+      <p>
+        Each is worded for the engine you picked. Unreal keeps eight bone
+        influences per vertex and Unity four; Unreal counts centimetres and
+        Unity metres; Unreal wants one root for retargeting and Unity wants one
+        clean hierarchy for its Humanoid Avatar. Same finding, different
+        reason, and you are told the one that applies to you.
+      </p>
 
       <div class="check-group">
         <h3>Skeleton <span class="count">9 checks</span></h3>
@@ -443,6 +495,10 @@
         <div class="bpanel">
           <div class="bp-head"><span class="caret">&#9662;</span> Shipshape</div>
           <div class="bp-obj"><span class="dot">&#9673;</span> GameRig</div>
+          <div class="bp-btns">
+            <span class="bp-btn">Unity</span>
+            <span class="bp-btn bp-btn-on">Unreal</span>
+          </div>
           <div class="bp-ready">
             <span class="swatch sw-ok" style="width:9px;height:9px;border-radius:2px"></span>
             Ready for Unreal
