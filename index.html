@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joe Solo — Tools for Blender</title>
+<meta name="description" content="Blender add-ons by Joe Solo. Shipshape Validator catches what breaks your export before it reaches Unreal or Unity.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56'><rect x='2' y='2' width='52' height='52' rx='4' fill='%230a2540' stroke='%2378beff' stroke-width='4'/><path d='M16 29 L25 38 L41 19' stroke='%234ade80' stroke-width='6' fill='none'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Outfit:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="wordmark" href="index.html">
+    <svg width="22" height="22" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+      <rect x="2" y="2" width="52" height="52" rx="4" stroke="#78beff" stroke-width="3"/>
+      <path d="M16 29 L25 38 L41 19" stroke="#4ade80" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>
+    </svg>
+    Joe Solo
+  </a>
+  <button class="menu-btn" aria-label="Menu">&#9776;</button>
+</header>
+
+<nav class="rail">
+  <div class="rail-title">Categories</div>
+  <div class="rail-group">Blender add-ons</div>
+  <a class="sub" href="shipshape.html">Shipshape Validator</a>
+</nav>
+
+<main class="main">
+
+  <section class="hero grid-bg">
+    <div class="hero-inner">
+
+      <div class="hero-copy">
+        <div class="lockup">
+          <svg width="30" height="30" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+            <rect x="2" y="2" width="52" height="52" rx="4" stroke="#78beff" stroke-width="2.5"/>
+            <path d="M16 29 L25 38 L41 19" stroke="#4ade80" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+          </svg>
+          <span class="lockup-name">Shipshape Validator</span>
+        </div>
+
+        <h1>Catch what breaks<br>your export.</h1>
+
+        <p class="lede">
+          Check a rig or mesh before it leaves for Unreal or Unity. Plain
+          language, safe fixes, and an export preset that was actually tested.
+        </p>
+
+        <div class="chips">
+          <span class="chip">25 checks</span>
+          <span class="chip">Unreal &amp; Unity</span>
+          <span class="chip">Nothing online</span>
+        </div>
+
+        <div class="btn-row">
+          <a class="btn" href="shipshape.html">Read the documentation</a>
+          <span class="price-note"><strong>$35</strong> &middot; one-time</span>
+        </div>
+      </div>
+
+      <div class="panel-fig">
+        <div class="figlabel">Fig. 1 &mdash; the panel</div>
+        <div class="bpanel">
+          <div class="bp-head"><span class="caret">&#9662;</span> Shipshape</div>
+
+          <div class="bp-obj"><span class="dot">&#9673;</span> GameRig</div>
+
+          <div class="bp-primary">Check</div>
+
+          <div class="bp-find">
+            <div class="title">
+              <span class="swatch sw-error"></span>
+              <span class="name name-error">One root bone</span>
+            </div>
+            <div class="body body-error">
+              3 bones sit at the top with no parent (pelvis, ik_foot_root,
+              ik_hand_root).
+            </div>
+            <div class="bp-btns">
+              <span class="bp-btn">Select</span>
+              <span class="bp-btn">Add root bone</span>
+            </div>
+          </div>
+
+          <div class="bp-find">
+            <div class="title">
+              <span class="swatch sw-error"></span>
+              <span class="name name-error">Armature scale applied</span>
+            </div>
+            <div class="body body-error">
+              Armature scale is 0.01 &mdash; the skeleton is 1.66m tall as it stands.
+            </div>
+            <div class="bp-btns">
+              <span class="bp-btn">Select</span>
+              <span class="bp-btn">Apply scale</span>
+            </div>
+          </div>
+
+          <div class="bp-find">
+            <div class="title">
+              <span class="swatch sw-warn"></span>
+              <span class="name name-plain">Deform bones move freely</span>
+            </div>
+            <div class="body body-plain">
+              160 bones are still driven by constraints.
+            </div>
+          </div>
+
+          <div class="bp-export-off">Export for Unreal</div>
+          <div class="bp-note">Fix 2 error(s) to enable export</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="wrap wide">
+
+    <h2 style="margin-top:0">Tools</h2>
+
+    <div class="tool-card">
+      <div class="body">
+        <h2>Shipshape Validator</h2>
+        <div class="tool-meta">Blender add-on &middot; v1.0.0 &middot; $35</div>
+        <p>
+          A safety net for the export step. It looks over your character or
+          prop, tells you in plain language what will break in the engine,
+          offers a fix where one is safe, and exports with settings that are
+          known to work.
+        </p>
+        <p style="margin-bottom:0">
+          Twenty-five checks across the skeleton, mesh, weights and materials.
+          Works with Rigify, Game Rig Tools, Auto-Rig Pro, Mixamo and
+          hand-built rigs.
+        </p>
+      </div>
+
+      <div style="flex:0 0 190px;display:flex;flex-direction:column;gap:10px">
+        <a class="btn" href="shipshape.html">Documentation</a>
+        <span class="btn disabled" title="Listing not published yet">Buy &mdash; coming soon</span>
+      </div>
+    </div>
+
+    <h2>What it does</h2>
+
+    <div class="cards">
+      <div class="card">
+        <span class="num">25</span>
+        <h3>Checks</h3>
+        <p>Skeleton, mesh, weights and materials &mdash; each one explains
+        itself in a sentence.</p>
+      </div>
+      <div class="card">
+        <span class="num">10</span>
+        <h3>Symptoms</h3>
+        <p>Already imported it and it looks wrong? Pick what you can see and
+        work backwards.</p>
+      </div>
+      <div class="card">
+        <span class="num">2</span>
+        <h3>Engines</h3>
+        <p>Unreal and Unity presets, verified by importing the result and
+        reading back what arrived.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="foot">
+    <div class="row">
+      <span>Joe Solo</span>
+      <span class="spacer"></span>
+      <a href="mailto:joesoloart@gmail.com">joesoloart@gmail.com</a>
+      <a href="shipshape.html">Shipshape Validator</a>
+    </div>
+  </footer>
+
+</main>
+
+<script src="assets/nav.js"></script>
+</body>
+</html>

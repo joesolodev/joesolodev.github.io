@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shipshape Validator — Documentation</title>
+<meta name="description" content="Shipshape Validator checks a Blender rig or mesh before you export it to Unreal or Unity. 25 checks, plain-language findings, safe fixes, tested export presets.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56'><rect x='2' y='2' width='52' height='52' rx='4' fill='%230a2540' stroke='%2378beff' stroke-width='4'/><path d='M16 29 L25 38 L41 19' stroke='%234ade80' stroke-width='6' fill='none'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Outfit:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="wordmark" href="index.html">
+    <svg width="22" height="22" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+      <rect x="2" y="2" width="52" height="52" rx="4" stroke="#78beff" stroke-width="3"/>
+      <path d="M16 29 L25 38 L41 19" stroke="#4ade80" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>
+    </svg>
+    Joe Solo
+  </a>
+  <span class="crumb">/ Shipshape Validator</span>
+  <button class="menu-btn" aria-label="Menu">&#9776;</button>
+</header>
+
+<nav class="rail">
+  <div class="rail-title">Shipshape Validator</div>
+  <a href="#overview" class="active">Overview</a>
+  <a href="#problem">The problem</a>
+
+  <div class="rail-group">How to use</div>
+  <a class="sub" href="#install">Installing</a>
+  <a class="sub" href="#five-minutes">The five minute version</a>
+  <a class="sub" href="#check">Select and Check</a>
+  <a class="sub" href="#guided">Guided Export</a>
+  <a class="sub" href="#symptoms">Symptom diagnosis</a>
+
+  <div class="rail-group">Reference</div>
+  <a class="sub" href="#checks">What it checks</a>
+  <a class="sub" href="#fixes">About the fixes</a>
+  <a class="sub" href="#marking">When a warning is wrong</a>
+  <a class="sub" href="#export">Exporting</a>
+  <a class="sub" href="#after">After you export</a>
+
+  <a href="#requirements">Requirements</a>
+  <a href="#faq">FAQ</a>
+  <a href="#support">Support</a>
+</nav>
+
+<main class="main">
+  <div class="wrap">
+
+    <section id="overview">
+      <h1>Shipshape Validator</h1>
+
+      <p class="lede">
+        Check your model before it leaves Blender, so it arrives in Unreal or
+        Unity the way you expect.
+      </p>
+
+      <p>
+        Shipshape looks over a character or a prop, tells you in plain language
+        what will break in the engine, offers a fix where one is safe, and
+        exports with settings that are known to work.
+      </p>
+
+      <p>
+        It is a safety net for the export step. It is not a general mesh
+        cleanup tool and not a rigging tool &mdash; it is deliberately narrow,
+        and it says so.
+      </p>
+
+      <div class="btn-row" style="margin:26px 0 8px">
+        <span class="btn disabled" title="Listing not published yet">Buy &mdash; coming soon</span>
+        <span class="price-note"><strong>$35 USD</strong> &middot; one-time, no subscription, updates included</span>
+      </div>
+    </section>
+
+    <section id="problem">
+      <h2>You exported it. It arrived wrong. Now what?</h2>
+
+      <p>
+        The character is lying on its side. Or it&rsquo;s the size of a coin.
+        Or it imported fine but the arms tear apart the moment it animates. Or
+        it&rsquo;s just&hellip; grey.
+      </p>
+
+      <p>
+        None of those tell you what actually went wrong, and Blender never
+        warned you. By the time the engine complains, you&rsquo;re guessing
+        which of a dozen things caused it.
+      </p>
+
+      <p>
+        <strong>Shipshape checks the model before it leaves.</strong> It looks
+        over your character or prop, tells you in plain language what will
+        break, offers a fix where one is safe, and exports with settings that
+        are known to work.
+      </p>
+    </section>
+
+    <hr>
+
+    <section id="install">
+      <h2>Installing</h2>
+
+      <ol class="steps">
+        <li>In Blender, go to <strong>Edit &rarr; Preferences &rarr; Add-ons</strong>.</li>
+        <li>Click the arrow at the top right, then <strong>Install from Disk</strong>.</li>
+        <li>Pick <code>shipshape_validator-1.0.0.zip</code>.</li>
+        <li>It turns on by itself. Close preferences.</li>
+      </ol>
+
+      <p>
+        Press <strong>N</strong> in the 3D viewport to open the sidebar. There
+        is now a <strong>Shipshape</strong> tab down the right-hand edge.
+      </p>
+    </section>
+
+    <section id="five-minutes">
+      <h2>The five minute version</h2>
+
+      <ol class="steps">
+        <li>Click your character&rsquo;s <strong>skeleton</strong> (or your prop&rsquo;s <strong>mesh</strong>).</li>
+        <li>Press <strong>Check</strong>.</li>
+        <li>Read the list. Red will break; yellow is worth a look.</li>
+        <li>Press a fix button, or follow the steps under <strong>How to fix it</strong>.</li>
+        <li>When it says <strong>Ready for Unreal</strong>, press <strong>Export</strong>.</li>
+      </ol>
+
+      <p>That is the whole tool. Everything below is detail.</p>
+    </section>
+
+    <hr>
+
+    <section id="check">
+      <h2>Select and Check</h2>
+
+      <p>
+        The main panel. Select something, press <strong>Check</strong>, and you
+        get a list.
+      </p>
+
+      <div class="legend">
+        <div><span class="swatch sw-error"></span> <strong>Red</strong> &mdash; breaks the export</div>
+        <div><span class="swatch sw-warn"></span> <strong>Yellow</strong> &mdash; worth a look</div>
+        <div><span class="swatch sw-ok"></span> <strong>Green</strong> &mdash; done</div>
+      </div>
+
+      <p>Each finding shows:</p>
+
+      <ul>
+        <li><strong>What is wrong</strong>, in a sentence, with the number that
+        matters &mdash; <em>&ldquo;3 bones sit at the top with no parent
+        (pelvis, ik_foot_root, ik_hand_root)&rdquo;</em></li>
+        <li><strong>Select</strong> &mdash; jumps to the exact bones, vertices,
+        edges or faces in question</li>
+        <li><strong>A fix button</strong>, when there is one that is safe to apply</li>
+        <li><strong>What is this?</strong> &mdash; expands into what the thing
+        is, why the engine cares, and what to do differently next time</li>
+        <li><strong>How to fix it</strong> &mdash; step-by-step, on findings
+        that have no fix button</li>
+        <li><strong>An eye icon</strong> &mdash; mark this finding as
+        intentional</li>
+      </ul>
+
+      <div class="panel-fig" style="margin:32px 0;width:396px">
+        <div class="figlabel">Fig. 2 &mdash; a finding</div>
+        <div class="bpanel">
+          <div class="bp-find">
+            <div class="title">
+              <span class="swatch sw-error"></span>
+              <span class="name name-error">One root bone</span>
+            </div>
+            <div class="body body-error">
+              3 bones sit at the top with no parent (pelvis, ik_foot_root,
+              ik_hand_root).
+            </div>
+            <div class="bp-btns">
+              <span class="bp-btn">Select</span>
+              <span class="bp-btn">Add root bone</span>
+            </div>
+            <div class="bp-btns">
+              <span class="bp-btn">What is this?</span>
+              <span class="bp-btn">How to fix it</span>
+            </div>
+            <div class="body body-plain" style="font-style:italic">
+              Adding a root bone parents the loose bones to it. It does not
+              rebuild your hierarchy.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="guided">
+      <h2>Guided Export</h2>
+
+      <p>
+        Three buttons: <strong>Static Prop</strong>, <strong>Character</strong>,
+        <strong>Animation</strong>.
+      </p>
+
+      <p>
+        Pick what you are exporting and Shipshape checks everything that
+        matters for it in one go &mdash; for a character, that is the skeleton
+        <em>and</em> every mesh bound to it &mdash; then shows a per-object
+        summary. Press <strong>Review</strong> on any row to see the detail.
+      </p>
+
+      <p>
+        Use this if you are not sure which object to select. It works that out
+        for you, and it finds the right skeleton on a Rigify or Game Rig Tools
+        setup rather than the control rig.
+      </p>
+    </section>
+
+    <section id="symptoms">
+      <h2>Something looks wrong in Unreal</h2>
+
+      <p>
+        Work backwards. You imported something, it looks wrong, and you do not
+        know which of twenty things caused it.
+      </p>
+
+      <p>Pick the symptom you can see:</p>
+
+      <ul class="symptoms">
+        <li>My model is tiny or gigantic</li>
+        <li>My model is lying on its side</li>
+        <li>My model is grey and has no textures</li>
+        <li>My mesh is spiky, or parts are stuck at the origin</li>
+        <li>It imported in T-pose and won&rsquo;t animate</li>
+        <li>There are extra bones I didn&rsquo;t make</li>
+        <li>Unreal said &ldquo;multiple roots&rdquo;</li>
+        <li>The model looks inside-out or see-through</li>
+        <li>I can walk through the model</li>
+        <li>A camera or light came through with it</li>
+      </ul>
+
+      <p>
+        Shipshape shows the checks that cause that symptom, and runs them on
+        your file.
+      </p>
+
+      <div class="callout">
+        <p>
+          Some symptoms are not caused by anything in your .blend at all.
+          Missing textures and missing collision get a written explanation of
+          what to do in the engine instead, because that is where the answer
+          is.
+        </p>
+      </div>
+    </section>
+
+    <hr>
+
+    <section id="checks">
+      <h2>What it checks</h2>
+
+      <p>Twenty-five checks. Every one of them explains itself.</p>
+
+      <div class="check-group">
+        <h3>Skeleton <span class="count">9 checks</span></h3>
+        <ul class="check-list">
+          <li><span class="tick">&#10003;</span> Scale applied</li>
+          <li><span class="tick">&#10003;</span> Rotation applied</li>
+          <li><span class="tick">&#10003;</span> One root bone</li>
+          <li><span class="tick">&#10003;</span> Root bone at the world origin</li>
+          <li><span class="tick">&#10003;</span> Something is actually bound to it</li>
+          <li><span class="tick">&#10003;</span> Not a control rig you shouldn&rsquo;t be exporting</li>
+          <li><span class="tick">&#10003;</span> Deform bones no longer driven by live constraints</li>
+          <li><span class="tick">&#10003;</span> Bones per vertex within the engine&rsquo;s limit</li>
+          <li><span class="tick">&#10003;</span> Bone names suited to Unity&rsquo;s Humanoid rig <em>(Unity only)</em></li>
+        </ul>
+      </div>
+
+      <div class="check-group">
+        <h3>Mesh <span class="count">10 checks</span></h3>
+        <ul class="check-list">
+          <li><span class="tick">&#10003;</span> Scale applied</li>
+          <li><span class="tick">&#10003;</span> Rotation applied</li>
+          <li><span class="tick">&#10003;</span> A sensible real-world size</li>
+          <li><span class="tick">&#10003;</span> Bound to the right skeleton</li>
+          <li><span class="tick">&#10003;</span> Non-manifold geometry</li>
+          <li><span class="tick">&#10003;</span> Inconsistent normals</li>
+          <li><span class="tick">&#10003;</span> Inverted normals (inside-out models)</li>
+          <li><span class="tick">&#10003;</span> Non-flat n-gons</li>
+          <li><span class="tick">&#10003;</span> Zero-area faces</li>
+          <li><span class="tick">&#10003;</span> Loose geometry</li>
+        </ul>
+      </div>
+
+      <div class="check-group">
+        <h3>Weights <span class="count">3 checks</span></h3>
+        <ul class="check-list">
+          <li><span class="tick">&#10003;</span> Weight totals normalized</li>
+          <li><span class="tick">&#10003;</span> Vertices with no weight</li>
+          <li><span class="tick">&#10003;</span> Vertex groups matching real bones</li>
+        </ul>
+      </div>
+
+      <div class="check-group">
+        <h3>Materials <span class="count">3 checks</span></h3>
+        <ul class="check-list">
+          <li><span class="tick">&#10003;</span> A material is assigned</li>
+          <li><span class="tick">&#10003;</span> Image textures rather than procedural ones</li>
+          <li><span class="tick">&#10003;</span> Texture files actually present on disk</li>
+        </ul>
+      </div>
+
+      <p>
+        It understands <strong>Rigify</strong> and <strong>Game Rig Tools</strong>
+        setups specifically &mdash; it finds the rig you actually export, not
+        the control rig.
+      </p>
+    </section>
+
+    <section id="fixes">
+      <h2>Fixes that don&rsquo;t wreck your rig</h2>
+
+      <p>
+        Apply scale. Recalculate normals. Bake and clear constraints. Add a
+        root bone. Limit bone influences. Normalize weights. Triangulate, then
+        spin the edges to choose how it splits. Delete loose geometry.
+        <strong>Fix All Safe Issues</strong> applies every safe one in a single
+        click.
+      </p>
+
+      <p>All undoable with <strong>Ctrl+Z</strong>. But more importantly:</p>
+
+      <div class="callout">
+        <p>
+          <strong>Every fix tells you what it does <em>not</em> promise.</strong>
+          Applying scale keeps the character the size it currently looks
+          &mdash; so if it was tiny, it&rsquo;s still tiny, just baked in. The
+          tool says so, next to the button and again after it runs.
+        </p>
+      </div>
+
+      <p>
+        <strong>Fixes refuse rather than guess.</strong> Applying a transform
+        over a posed rig would bake the pose into the rest pose, so it stops
+        and explains. Baking animation with nothing to bake would freeze the
+        rig, so it stops and explains. Adding a root bone never moves an
+        existing one.
+      </p>
+
+      <p>
+        And some things deliberately have <strong>no</strong> fix button.
+        Nothing here will guess which bone an unweighted vertex belongs to, or
+        rescale your character for you. Those get instructions instead.
+      </p>
+
+      <h3>Fix All</h3>
+
+      <p>
+        When more than one safe fix is available, a <strong>Fix All Safe
+        Issues</strong> button appears above the list. It applies them together
+        and re-checks.
+      </p>
+
+      <p>
+        It only ever runs fixes that are safe unattended. Anything that could
+        lose work &mdash; deleting a vertex group that still holds weights,
+        trimming bone influences, triangulating &mdash; stays a deliberate
+        single button press, and Fix All leaves it alone. So does anything you
+        have marked intentional.
+      </p>
+    </section>
+
+    <section id="marking">
+      <h2>When a warning is wrong</h2>
+
+      <p>
+        Some rigs break the rules on purpose. A skeleton might carry a scale
+        that looks wrong and is not.
+      </p>
+
+      <p>
+        Click the <strong>eye icon</strong> on that finding. It stops counting:
+        it leaves the list, stops blocking export, and Fix All ignores it.
+      </p>
+
+      <p>
+        Marked findings are never hidden. They stay listed under <strong>Marked
+        intentional</strong>, with a button to bring them back, and the green
+        summary says <em>&ldquo;22 passed, 1 marked intentional&rdquo;</em>
+        rather than pretending everything passed.
+      </p>
+
+      <p>
+        The mark is saved <strong>in the .blend, per object</strong>. Ignoring
+        something on one character does not silence it on another, and it
+        survives closing the file.
+      </p>
+
+      <p>A few checks refuse to be marked &mdash; the ones that always break the export.</p>
+    </section>
+
+    <section id="export">
+      <h2>Exporting</h2>
+
+      <p>
+        Choose <strong>Engine</strong> &mdash; Unreal or Unity &mdash; then
+        press <strong>Export</strong>.
+      </p>
+
+      <p>
+        Shipshape uses a preset that is known to work with that engine, so you
+        never see the FBX dialog. Leaf bones off, deform bones only, no cameras
+        or lights, correct smoothing and tangents, textures copied alongside.
+        Press <strong>What does the export do?</strong> to read exactly what it
+        sets, in plain language. Nothing is hidden.
+      </p>
+
+      <div class="callout">
+        <p>
+          These weren&rsquo;t guessed from forum posts. <strong>Both presets
+          were verified by importing into the real engine and reading back what
+          the engine produced</strong> &mdash; Unreal 5.8 and Unity 6. Correct
+          size, correct orientation, correct skeleton, measured rather than
+          eyeballed.
+        </p>
+      </div>
+
+      <p>
+        Export is <strong>blocked while there are red errors</strong>, and the
+        button says how many. Warnings do not block. If you need to export
+        anyway, tick <strong>Export anyway, despite errors</strong> in the file
+        browser.
+      </p>
+
+      <p>
+        The engine choice is saved with your .blend, because a project targets
+        one engine.
+      </p>
+
+      <div class="panel-fig" style="margin:32px 0;width:396px">
+        <div class="figlabel">Fig. 3 &mdash; ready</div>
+        <div class="bpanel">
+          <div class="bp-head"><span class="caret">&#9662;</span> Shipshape</div>
+          <div class="bp-obj"><span class="dot">&#9673;</span> GameRig</div>
+          <div class="bp-ready">
+            <span class="swatch sw-ok" style="width:9px;height:9px;border-radius:2px"></span>
+            Ready for Unreal
+          </div>
+          <div class="bp-note" style="text-align:left">22 passed, 1 marked intentional</div>
+          <div class="bp-export-on">Export for Unreal</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="after">
+      <h2>After you export</h2>
+
+      <p>
+        A short checklist appears for the engine side, where a lot of first
+        exports actually go wrong: which skeleton to pick, why to leave Import
+        Uniform Scale at 1, why materials need importing separately. Different
+        advice for characters and props, and for Unreal and Unity.
+      </p>
+    </section>
+
+    <hr>
+
+    <section id="requirements">
+      <h2>Requirements</h2>
+
+      <ul>
+        <li><strong>Blender 4.5 LTS or 5.x</strong> &mdash; both tested, on
+        Windows, Mac and Linux</li>
+        <li>Works with Rigify, Game Rig Tools, Auto-Rig Pro, Mixamo and
+        hand-built rigs</li>
+        <li><strong>Nothing online.</strong> No account, no login, no
+        phone-home. It runs entirely on your machine.</li>
+      </ul>
+    </section>
+
+    <section id="faq">
+      <h2>Frequently asked</h2>
+
+      <div class="faq">
+
+        <details>
+          <summary>Why is my model grey in the engine?</summary>
+          <div class="answer">
+            <p>
+              FBX carries the shape and the bones, not Blender materials
+              &mdash; it only records where your image textures live. Import
+              those images in the engine and build a material there. Anything
+              procedural (noise, bricks, checkers) doesn&rsquo;t survive the
+              trip at all and needs baking to an image first. Shipshape warns
+              about both, including the silent case where a procedural material
+              exports as a blank one and looks like it worked.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>It says my character is 2cm tall. Is that a bug?</summary>
+          <div class="answer">
+            <p>
+              No &mdash; it really is. Applying a transform bakes in whatever
+              size the model looks right now, so a rig that was scaled down
+              stays small. Every other check passes and the character is still
+              unusable in-engine. Scale it up, apply, check again.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>It flagged my rig and my rig is fine.</summary>
+          <div class="answer">
+            <p>
+              Possible, and worth telling me about. Mark it intentional with
+              the eye icon to get on with your work, then send me the file.
+              Several real bugs were found exactly that way &mdash; including
+              one where a correct UE4 mannequin rig was being told to break
+              itself.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Does it work with my rig?</summary>
+          <div class="answer">
+            <p>
+              Rigify, Game Rig Tools, Auto-Rig Pro, Mixamo, and plain
+              hand-built armatures. It recognises which one it&rsquo;s looking
+              at and adjusts &mdash; a raw Rigify control rig gets told to
+              generate a game rig rather than being buried in 200 complaints
+              about its control bones.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Do I have to run it on every object?</summary>
+          <div class="answer">
+            <p>No. Use Guided Export and it gathers everything for you.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Can I export with warnings showing?</summary>
+          <div class="answer">
+            <p>Yes. Only red errors block, and even those can be overridden.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Is there a subscription?</summary>
+          <div class="answer">
+            <p>
+              No. One purchase &mdash; $35 USD &mdash; everything included,
+              updates included.
+            </p>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <section id="support">
+      <h2>Support</h2>
+
+      <p>
+        Bug reports, wrong warnings and questions:
+        <a href="mailto:joesoloart@gmail.com">joesoloart@gmail.com</a>
+      </p>
+
+      <p>
+        A wrong warning is worth reporting even if you can work around it.
+        Being right about real files is the entire point of this tool.
+      </p>
+    </section>
+
+  </div>
+
+  <footer class="foot">
+    <div class="row">
+      <span>Shipshape Validator v1.0.0 &mdash; GPL-3.0-or-later</span>
+      <span class="spacer"></span>
+      <a href="index.html">All tools</a>
+      <a href="mailto:joesoloart@gmail.com">joesoloart@gmail.com</a>
+    </div>
+  </footer>
+
+</main>
+
+<script src="assets/nav.js"></script>
+</body>
+</html>
