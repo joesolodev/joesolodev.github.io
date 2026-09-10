@@ -788,6 +788,25 @@ code {
 
 .gallery a:hover .cap { opacity: 1; }
 
+/* Studio sheets are wide multi-view layouts; two columns gives each one
+   enough width for the individual views to read. */
+.gallery.two { grid-template-columns: 1fr 1fr; }
+
+/* A caption always visible under the studio pieces, since the credit
+   matters more than an uninterrupted image. */
+.gallery figure { margin: 0; display: flex; flex-direction: column; }
+
+.gallery.two .col { justify-content: space-between; }
+
+.credit {
+  font-size: 12.5px;
+  color: var(--text-dim);
+  margin: 8px 0 0;
+  line-height: 1.45;
+}
+
+.credit strong { color: var(--text); font-weight: 500; }
+
 /* ---------- lightbox ---------- */
 
 .lightbox[hidden] { display: none; }
@@ -843,6 +862,8 @@ code {
 
 @media (max-width: 1240px) {
   .gallery { grid-template-columns: 1fr 1fr; }
+  .gallery.two { grid-template-columns: 1fr; }
+  .gallery.two .col { display: contents; }
   .gallery .col:nth-child(3) { display: contents; }
 }
 
