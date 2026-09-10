@@ -591,6 +591,16 @@ code {
 .foot .row { max-width: 1040px; display: flex; gap: 26px; flex-wrap: wrap; align-items: center; }
 .foot .spacer { flex-grow: 1; }
 
+/* On the About page the footer shares the centred column and its links
+   sit centred under the middle of the gallery. */
+.foot.about .row {
+  max-width: 1120px;
+  margin: 0 auto;
+  justify-content: center;
+  gap: 30px;
+}
+.foot.about .spacer { display: none; }
+
 /* ---------- responsive ---------- */
 
 @media (max-width: 900px) {
