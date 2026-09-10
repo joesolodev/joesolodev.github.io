@@ -645,34 +645,40 @@ code {
 
 /* The whole About column is centred on the page, as in the reference,
    rather than pinned to the sidebar with empty space on the right. */
-.wrap.about { max-width: 1120px; margin: 0 auto; }
+.wrap.about { max-width: 1120px; margin: 0 auto; padding-bottom: 70px; }
+
+/* This page is a dense CV, not a docs page - the default vertical rhythm
+   leaves it floating. Halve the gaps between its sections. */
+.wrap.about hr { margin: 26px 0; }
+.wrap.about .about-body h3 { margin-top: 0; margin-bottom: 12px; }
+.wrap.about section { padding: 0; }
 
 .about-head {
   text-align: center;
-  padding: 26px 0 40px;
+  padding: 12px 0 26px;
 }
 
 .avatar {
-  width: 148px;
-  height: 148px;
+  width: 124px;
+  height: 124px;
   border-radius: 50%;
   object-fit: cover;
   display: block;
-  margin: 0 auto 26px;
+  margin: 0 auto 18px;
   border: 2px solid var(--cyan-dim);
   box-shadow: 0 0 0 6px rgba(120, 190, 255, 0.06), 0 18px 40px rgba(0, 0, 0, 0.45);
 }
 
 .about-head h2 {
-  font-size: 32px;
-  margin: 0 0 6px;
+  font-size: 30px;
+  margin: 0 0 4px;
   letter-spacing: -0.02em;
 }
 
 .about-role {
-  font-size: 18px;
+  font-size: 17px;
   color: var(--text);
-  margin: 0 0 12px;
+  margin: 0 0 8px;
 }
 
 .about-meta {
@@ -682,7 +688,7 @@ code {
   gap: 8px;
   font-size: 14.5px;
   color: var(--text);
-  margin: 0 0 10px;
+  margin: 0 0 7px;
 }
 
 .about-meta svg { flex-shrink: 0; }
@@ -702,8 +708,9 @@ code {
 
 .about-body .summary {
   font-size: 15.5px;
-  line-height: 1.7;
+  line-height: 1.62;
   max-width: 720px;
+  margin-bottom: 0;
 }
 
 .skills {
@@ -737,7 +744,7 @@ code {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  margin-top: 26px;
+  margin-top: 18px;
   align-items: stretch;
 }
 
@@ -813,7 +820,7 @@ code {
   display: flex;
   align-items: baseline;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .shipped-count {
@@ -836,7 +843,7 @@ code {
 .titles {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px 26px;
+  gap: 6px 26px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -899,11 +906,11 @@ code {
 }
 
 /* Experience: a rule down the left with each role hung off it. */
-.roles { margin-top: 26px; max-width: 760px; }
+.roles { margin-top: 18px; max-width: 760px; }
 
 .role {
   position: relative;
-  padding: 0 0 30px 26px;
+  padding: 0 0 24px 26px;
   border-left: 1px solid var(--cyan-dim);
 }
 
@@ -933,7 +940,7 @@ code {
 .role .when {
   font-size: 13px;
   color: var(--text-dim);
-  margin: 0 0 12px;
+  margin: 0 0 9px;
   display: flex;
   flex-wrap: wrap;
   gap: 6px 12px;
@@ -943,8 +950,8 @@ code {
 
 .role li {
   font-size: 14.5px;
-  line-height: 1.6;
-  margin-bottom: 6px;
+  line-height: 1.55;
+  margin-bottom: 4px;
   color: var(--text);
 }
 
