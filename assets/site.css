@@ -633,6 +633,10 @@ code {
    contact. Sits on the same navy ground; the divider below it is the one
    rule that runs full width of the content column. */
 
+/* The whole About column is centred on the page, as in the reference,
+   rather than pinned to the sidebar with empty space on the right. */
+.wrap.about { max-width: 1120px; margin: 0 auto; }
+
 .about-head {
   text-align: center;
   padding: 26px 0 40px;
@@ -689,7 +693,7 @@ code {
 .about-body .summary {
   font-size: 15.5px;
   line-height: 1.7;
-  max-width: 680px;
+  max-width: 720px;
 }
 
 .skills {
@@ -721,10 +725,10 @@ code {
 
 .gallery {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-top: 26px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .gallery .col {
@@ -732,6 +736,12 @@ code {
   flex-direction: column;
   gap: 16px;
 }
+
+/* A column holding one piece stretches that piece to the row height, so
+   the three columns end level. The portrait renders lose a sliver top and
+   bottom; nothing important sits there. */
+.gallery .col > a:only-child { flex: 1; display: flex; }
+.gallery .col > a:only-child img { flex: 1; object-fit: cover; object-position: center 20%; height: 100%; }
 
 .gallery a {
   display: block;
@@ -821,8 +831,14 @@ code {
 .lightbox .lb-prev  { left: 14px; top: 50%; transform: translateY(-50%); }
 .lightbox .lb-next  { right: 14px; top: 50%; transform: translateY(-50%); }
 
+@media (max-width: 1240px) {
+  .gallery { grid-template-columns: 1fr 1fr; }
+  .gallery .col:nth-child(3) { display: contents; }
+}
+
 @media (max-width: 900px) {
   .gallery { grid-template-columns: 1fr; }
+  .gallery .col { display: contents; }
   .lightbox { padding: 60px 14px 44px; }
   .lightbox .lb-prev, .lightbox .lb-next { top: auto; bottom: 44px; transform: none; }
 }
