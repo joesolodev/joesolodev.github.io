@@ -807,6 +807,116 @@ code {
 
 .credit strong { color: var(--text); font-weight: 500; }
 
+/* ---------- resume ---------- */
+
+/* Software: icon-less rows in three columns, matching the reference's
+   scan pattern without borrowing the vendor marks. */
+.software {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px 26px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 720px;
+}
+
+.software li {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--text);
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+}
+
+.software li::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 1px;
+  background: var(--cyan);
+  flex-shrink: 0;
+}
+
+/* Experience: a rule down the left with each role hung off it. */
+.roles { margin-top: 26px; max-width: 760px; }
+
+.role {
+  position: relative;
+  padding: 0 0 30px 26px;
+  border-left: 1px solid var(--cyan-dim);
+}
+
+.role:last-child { border-left-color: transparent; padding-bottom: 0; }
+
+.role::before {
+  content: "";
+  position: absolute;
+  left: -4.5px;
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+}
+
+.role h4 {
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 16.5px;
+  font-weight: 600;
+  color: var(--text-bright);
+  margin: 0 0 3px;
+}
+
+.role .where { font-size: 14.5px; color: var(--text); margin: 0 0 2px; }
+
+.role .when {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin: 0 0 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+}
+
+.role ul { margin: 0; padding-left: 18px; }
+
+.role li {
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.role li::marker { color: var(--cyan-dim); }
+
+/* A company holding more than one role nests them under one heading. */
+.role .subrole {
+  margin-top: 22px;
+  padding-left: 18px;
+  border-left: 1px solid var(--cyan-dim);
+}
+
+.role .subrole:first-of-type { margin-top: 14px; }
+
+.shipped {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ready);
+  border: 1px solid rgba(74, 222, 128, 0.35);
+  border-radius: 3px;
+  padding: 3px 9px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 700px) {
+  .software { grid-template-columns: 1fr 1fr; }
+}
+
 /* ---------- lightbox ---------- */
 
 .lightbox[hidden] { display: none; }
