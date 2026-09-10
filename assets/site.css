@@ -626,3 +626,203 @@ code {
   border-radius: 4px;
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4);
 }
+
+/* ---------- about ---------- */
+
+/* Centred profile block, after the reference: avatar, name, title, location,
+   contact. Sits on the same navy ground; the divider below it is the one
+   rule that runs full width of the content column. */
+
+.about-head {
+  text-align: center;
+  padding: 26px 0 40px;
+}
+
+.avatar {
+  width: 148px;
+  height: 148px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 26px;
+  border: 2px solid var(--cyan-dim);
+  box-shadow: 0 0 0 6px rgba(120, 190, 255, 0.06), 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.about-head h2 {
+  font-size: 32px;
+  margin: 0 0 6px;
+  letter-spacing: -0.02em;
+}
+
+.about-role {
+  font-size: 18px;
+  color: var(--text);
+  margin: 0 0 12px;
+}
+
+.about-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+  color: var(--text);
+  margin: 0 0 10px;
+}
+
+.about-meta svg { flex-shrink: 0; }
+
+.about-links {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  font-size: 14.5px;
+}
+
+.about-body h3 {
+  font-size: 22px;
+  margin: 0 0 14px;
+  letter-spacing: -0.02em;
+}
+
+.about-body .summary {
+  font-size: 15.5px;
+  line-height: 1.7;
+  max-width: 680px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skills li {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #cfe4f7;
+  border: 1px solid rgba(120, 190, 255, 0.4);
+  border-radius: 3px;
+  padding: 7px 12px;
+  margin: 0;
+}
+
+/* ---------- work gallery ---------- */
+
+/* Two explicit columns rather than CSS columns: the tall renders and the
+   wide ones are placed by hand so the two stacks finish at the same height,
+   and the reading order stays left-to-right. */
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 26px;
+  align-items: start;
+}
+
+.gallery .col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.gallery a {
+  display: block;
+  border: 1px solid var(--cyan-dim);
+  border-radius: 4px;
+  overflow: hidden;
+  background: #061a2e;
+  position: relative;
+  color: inherit;
+}
+
+.gallery a:hover { border-color: var(--cyan); text-decoration: none; }
+
+.gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.25s ease;
+}
+
+.gallery a:hover img { transform: scale(1.02); }
+
+.gallery .cap {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 26px 14px 12px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(6, 26, 46, 0.86));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.gallery a:hover .cap { opacity: 1; }
+
+/* ---------- lightbox ---------- */
+
+.lightbox[hidden] { display: none; }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 16, 29, 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 44px 64px;
+  z-index: 100;
+  cursor: zoom-out;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border: 1px solid var(--cyan-dim);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  cursor: default;
+}
+
+.lightbox .lb-cap {
+  position: absolute;
+  left: 0; right: 0; bottom: 14px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.lightbox .lb-close,
+.lightbox .lb-prev,
+.lightbox .lb-next {
+  position: absolute;
+  background: none;
+  border: 1px solid var(--cyan-dim);
+  border-radius: 3px;
+  color: var(--cyan);
+  font: 600 18px/1 "Outfit", system-ui, sans-serif;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.lightbox button:hover { background: rgba(120, 190, 255, 0.12); border-color: var(--cyan); }
+
+.lightbox .lb-close { top: 14px; right: 14px; }
+.lightbox .lb-prev  { left: 14px; top: 50%; transform: translateY(-50%); }
+.lightbox .lb-next  { right: 14px; top: 50%; transform: translateY(-50%); }
+
+@media (max-width: 900px) {
+  .gallery { grid-template-columns: 1fr; }
+  .lightbox { padding: 60px 14px 44px; }
+  .lightbox .lb-prev, .lightbox .lb-next { top: auto; bottom: 44px; transform: none; }
+}
