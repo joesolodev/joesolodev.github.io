@@ -80,5 +80,5 @@ More from the rest of the journey soon. Check back here for regular blog updates
 
 The sign-off is one of these two, picked at random each time:
 
-- `Remember, work hard, don't suck.`
-- `Remember, suck is not a style.`
+- `Work hard, don't suck.`
+- `Suck is not a style.`
