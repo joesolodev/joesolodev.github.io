@@ -76,9 +76,12 @@ Always end with:
 More from the rest of the journey soon. Check back here for regular blog updates.
 
 <sign-off>
+
+Joe Solo
 ```
 
-The sign-off is one of these two, picked at random each time:
+The sign-off is one of these two, picked at random each time. "Joe Solo" goes
+on its own line under it:
 
 - `Work hard, don't suck.`
 - `Suck is not a style.`
