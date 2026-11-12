@@ -56,4 +56,4 @@ If programming a game is the difference between getting a story you wrote out in
 
 More from the rest of the journey soon. Check back here for regular blog updates.
 
-Work hard, don't suck.
+Remember, work hard, don't suck.

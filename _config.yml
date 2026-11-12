@@ -1,0 +1,4 @@
+# GitHub Pages runs Jekyll, which would publish these as pages. Keep them private to the repo.
+exclude:
+  - BLOG_GUIDE.md
+  - CLAUDE.md

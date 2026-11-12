@@ -16,6 +16,9 @@ Plain static HTML. Edit and push; GitHub Pages serves it.
 
 ## Writing a blog post
 
+For turning a transcript into a post (voice, structure, sign-off), see
+`BLOG_GUIDE.md`.
+
 1. Create `posts/YYYY-MM-DD-some-slug.md`:
 
    ```
