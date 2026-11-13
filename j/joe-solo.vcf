@@ -1,0 +1,9 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Solo;Joe;;;
+FN:Joe Solo
+TITLE:Principal Artist
+EMAIL;TYPE=INTERNET:joesoloart@gmail.com
+URL:https://joesolodev.github.io/
+ADR;TYPE=WORK:;;;;California;;United States
+END:VCARD
