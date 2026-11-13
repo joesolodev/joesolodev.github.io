@@ -17,6 +17,13 @@ Reference post: `posts/2026-11-12-the-unspoken-rule-of-aaa-game-art.md`
 4. Tell Joe the post is up and list the main things you cut or reworded, so he
    can put any of them back.
 
+## Drafts
+
+A finished post that should go up later lives in `_drafts/` with `date: TBD`.
+The build skips that folder and GitHub Pages doesn't publish it. To publish
+one, move it to `posts/YYYY-MM-DD-slug.md`, set the date, and if it has a
+"Today is day N" line, check the day number still matches the publish date.
+
 ## Front matter
 
 ```
