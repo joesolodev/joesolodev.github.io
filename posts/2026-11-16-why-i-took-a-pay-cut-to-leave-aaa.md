@@ -1,12 +1,12 @@
 ---
 title: Why I Took a Pay Cut to Leave AAA
-date: TBD
+date: 2026-11-16
 summary: Going from AAA to indie meant less money and fewer perks, on purpose. The new perks win by a mile.
 ---
 
 When I say I've gone from AAA to indie, I mean something specific: it's the kind of work I'm purposely looking for.
 
-Today is day 84 of my move from AAA game development to indie. I'm working on my game, and I've been thinking about what that move actually means.
+Today is day 87 of my move from AAA game development to indie. I'm working on my game, and I've been thinking about what that move actually means.
 
 ## I went looking for this
 
