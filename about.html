@@ -11,6 +11,24 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Outfit:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/site.css?v=f4c32c9">
+<style>
+  .ff-kicker { font-size: 12.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ready); margin: 0 0 6px; }
+  .ff h3 { font-size: 40px; line-height: 1.05; margin: 0 0 10px; }
+  .ff-lead { font-size: 18px; line-height: 1.5; color: var(--text-bright); margin: 0 0 20px; max-width: 46em; }
+  .gallery.ff-hero { display: block; margin-top: 0; }
+  .ff-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 22px 0; }
+  .ff-stats div { border: 1px solid var(--cyan-dim); border-radius: 4px; background: rgba(7, 28, 47, 0.72); padding: 14px 16px; }
+  .ff-stats strong { display: block; font-family: "Bricolage Grotesque", system-ui, sans-serif; font-weight: 800; font-size: 28px; line-height: 1.1; color: var(--cyan); }
+  .ff-stats span { font-size: 13.5px; color: var(--text); }
+  .ff-points { margin: 0 0 24px; padding-left: 18px; }
+  .ff-points li { margin-bottom: 6px; }
+  .ff-points strong { color: var(--text-bright); font-weight: 600; }
+  .ff-video { aspect-ratio: 16 / 9; border: 1px solid var(--cyan-dim); border-radius: 4px; overflow: hidden; background: #061a2e; }
+  .ff-video iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .ff-cta { margin-top: 26px; padding: 18px 20px; border: 1px solid var(--cyan-dim); border-left: 3px solid var(--ready); border-radius: 4px; background: rgba(7, 28, 47, 0.72); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
+  .ff-cta p { margin: 0; font-size: 17px; font-weight: 600; color: var(--text-bright); }
+  @media (max-width: 700px) { .ff-stats { grid-template-columns: 1fr; } .ff h3 { font-size: 32px; } }
+</style>
 </head>
 <body>
 
@@ -32,6 +50,7 @@
   <a class="sub" href="shipshape.html">Shipshape Validator</a>
   <div class="rail-group">About</div>
   <a class="sub active" href="about.html">Joe Solo</a>
+  <a class="sub" href="about.html#firefall">FireFall</a>
   <a class="sub" href="about.html#titles">Shipped titles</a>
   <a class="sub" href="about.html#work">Personal work</a>
   <a class="sub" href="about.html#production">Production work</a>
@@ -75,6 +94,117 @@
         Highly experienced across PC, console, and VR platforms, with hands-on
         production experience in Unreal Engine and proprietary game engines.
       </p>
+    </section>
+
+    <hr>
+
+    <section id="firefall" class="about-body ff">
+      <p class="ff-kicker">Ex-FireFall developer &middot; Red 5 Studios &middot; 2011 &ndash; 2015</p>
+      <h3>FireFall</h3>
+      <p class="ff-lead">
+        Senior Character Artist at Red 5 Studios, with a hand in every battleframe and
+        backpack in the game. Ready to bring some of that old Red 5 magic to a new team.
+      </p>
+
+      <div class="gallery ff-hero">
+        <figure>
+          <a href="assets/work/firefall/poster.jpg" data-title="FireFall marketing art &mdash; Red 5 Studios">
+            <img src="assets/work/firefall/poster-thumb.jpg" alt="FireFall marketing art: two armored battleframe soldiers back to back, firing rifles" width="1100" height="688">
+          </a>
+          <p class="credit"><strong>FireFall marketing art</strong> &middot; Red 5 Studios, featuring my battleframe</p>
+        </figure>
+      </div>
+
+      <div class="ff-stats">
+        <div><strong>6 weeks</strong><span>Arsenal battleframe, concept to ship, all in house</span></div>
+        <div><strong>Every</strong><span>battleframe and backpack in the game</span></div>
+        <div><strong>500+</strong><span>character and gameplay assets</span></div>
+      </div>
+
+      <ul class="ff-points">
+        <li><strong>The Arsenal.</strong> The game&rsquo;s first major body type upgrade, and one of
+        its most popular frames.</li>
+        <li><strong>More than character art.</strong> Weapons artist, prop artist and scrum master,
+        with contributions to story and design across every department.</li>
+        <li><strong>Design, not just modeling.</strong> Co-designed and modeled the character
+        creator and upgrade room, battleframe interiors included, and designed the back views
+        that single-angle concept art didn&rsquo;t show.</li>
+        <li><strong>Pushing the game forward.</strong> Part of the push for interiors and a
+        campaign with missions.</li>
+      </ul>
+
+      <div class="ff-video">
+        <iframe src="https://www.youtube-nocookie.com/embed/-XEmZsDNCkQ" title="FireFall cinematic trailer" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <p class="credit"><strong>FireFall cinematic trailer</strong> &middot; Red 5 Studios</p>
+
+      <div class="gallery two">
+        <div class="col">
+          <figure>
+            <a href="assets/work/firefall/ars-001.jpg" data-title="Arsenal battleframe &mdash; FireFall">
+            <img src="assets/work/firefall/ars-001-thumb.jpg" alt="The Arsenal battleframe, a heavy armored suit, front and back views" loading="lazy" width="1100" height="619">
+            <span class="cap">Arsenal battleframe</span>
+          </a>
+            <a href="assets/work/firefall/ars-002.jpg" data-title="Arsenal battleframe &mdash; FireFall" style="display:none"><img alt="Arsenal battleframe, sheet 2 of 10"></a>
+            <a href="assets/work/firefall/ars-003.jpg" data-title="Arsenal battleframe &mdash; FireFall" style="display:none"><img alt="Arsenal battleframe, sheet 3 of 10"></a>
+            <a href="assets/work/firefall/ars-004.jpg" data-title="Arsenal battleframe &mdash; FireFall" style="display:none"><img alt="Arsenal battleframe, sheet 4 of 10"></a>
+            <a href="assets/work/firefall/ars-005.jpg" data-title="Arsenal battleframe &mdash; FireFall" style="display:none"><img alt="Arsenal battleframe, sheet 5 of 10"></a>
+            <a href="assets/work/firefall/ars-006.jpg" data-title="Arsenal battleframe &mdash; FireFall" style="display:none"><img alt="Arsenal battleframe, sheet 6 of 10"></a>
+            <a href="assets/work/firefall/ars-007.jpg" data-title="Arsenal battleframe &mdash; FireFall" style="display:none"><img alt="Arsenal battleframe, sheet 7 of 10"></a>
+            <a href="assets/work/firefall/ars-008.jpg" data-title="Arsenal battleframe &mdash; FireFall" style="display:none"><img alt="Arsenal battleframe, sheet 8 of 10"></a>
+            <a href="assets/work/firefall/ars-009.jpg" data-title="Arsenal battleframe &mdash; FireFall" style="display:none"><img alt="Arsenal battleframe, sheet 9 of 10"></a>
+            <a href="assets/work/firefall/ars-010.jpg" data-title="Arsenal battleframe &mdash; FireFall" style="display:none"><img alt="Arsenal battleframe, sheet 10 of 10"></a>
+            <p class="credit"><strong>Arsenal battleframe</strong> &middot; 10 images</p>
+          </figure>
+          <figure>
+            <a href="assets/work/firefall/chosehex-001.jpg" data-title="Chosen head &mdash; FireFall">
+            <img src="assets/work/firefall/chosehex-001-thumb.jpg" alt="The Chosen head, a sculpted alien head with pointed ears, two views" loading="lazy" width="1100" height="619">
+            <span class="cap">Chosen head</span>
+          </a>
+            <a href="assets/work/firefall/chosehex-002.jpg" data-title="Chosen head &mdash; FireFall" style="display:none"><img alt="Chosen head, sheet 2 of 5"></a>
+            <a href="assets/work/firefall/chosehex-003.jpg" data-title="Chosen head &mdash; FireFall" style="display:none"><img alt="Chosen head, sheet 3 of 5"></a>
+            <a href="assets/work/firefall/chosehex-004.jpg" data-title="Chosen head &mdash; FireFall" style="display:none"><img alt="Chosen head, sheet 4 of 5"></a>
+            <a href="assets/work/firefall/chosehex-005.jpg" data-title="Chosen head &mdash; FireFall" style="display:none"><img alt="Chosen head, sheet 5 of 5"></a>
+            <p class="credit"><strong>Chosen head</strong> &middot; 5 images</p>
+          </figure>
+        </div>
+        <div class="col">
+          <figure>
+            <a href="assets/work/firefall/chosemask-001.jpg" data-title="Chosen mask &mdash; FireFall">
+            <img src="assets/work/firefall/chosemask-001-thumb.jpg" alt="The Chosen mask, an alien head in an armored mask with yellow lights, two views" loading="lazy" width="1100" height="619">
+            <span class="cap">Chosen mask</span>
+          </a>
+            <a href="assets/work/firefall/chosemask-002.jpg" data-title="Chosen mask &mdash; FireFall" style="display:none"><img alt="Chosen mask, sheet 2 of 5"></a>
+            <a href="assets/work/firefall/chosemask-003.jpg" data-title="Chosen mask &mdash; FireFall" style="display:none"><img alt="Chosen mask, sheet 3 of 5"></a>
+            <a href="assets/work/firefall/chosemask-004.jpg" data-title="Chosen mask &mdash; FireFall" style="display:none"><img alt="Chosen mask, sheet 4 of 5"></a>
+            <a href="assets/work/firefall/chosemask-005.jpg" data-title="Chosen mask &mdash; FireFall" style="display:none"><img alt="Chosen mask, sheet 5 of 5"></a>
+            <p class="credit"><strong>Chosen mask</strong> &middot; a popular mask &middot; 5 images</p>
+          </figure>
+          <figure>
+            <a href="assets/work/firefall/sc-001.jpg" data-title="Starchamber &mdash; FireFall">
+            <img src="assets/work/firefall/sc-001-thumb.jpg" alt="The Starchamber, an armored pod with yellow lights, closed and open views" loading="lazy" width="1100" height="619">
+            <span class="cap">Starchamber</span>
+          </a>
+            <a href="assets/work/firefall/sc-002.jpg" data-title="Starchamber &mdash; FireFall" style="display:none"><img alt="Starchamber, sheet 2 of 9"></a>
+            <a href="assets/work/firefall/sc-003.jpg" data-title="Starchamber &mdash; FireFall" style="display:none"><img alt="Starchamber, sheet 3 of 9"></a>
+            <a href="assets/work/firefall/sc-004.jpg" data-title="Starchamber &mdash; FireFall" style="display:none"><img alt="Starchamber, sheet 4 of 9"></a>
+            <a href="assets/work/firefall/sc-005.jpg" data-title="Starchamber &mdash; FireFall" style="display:none"><img alt="Starchamber, sheet 5 of 9"></a>
+            <a href="assets/work/firefall/sc-006.jpg" data-title="Starchamber &mdash; FireFall" style="display:none"><img alt="Starchamber, sheet 6 of 9"></a>
+            <a href="assets/work/firefall/sc-007.jpg" data-title="Starchamber &mdash; FireFall" style="display:none"><img alt="Starchamber, sheet 7 of 9"></a>
+            <a href="assets/work/firefall/sc-008.jpg" data-title="Starchamber &mdash; FireFall" style="display:none"><img alt="Starchamber, sheet 8 of 9"></a>
+            <a href="assets/work/firefall/sc-009.jpg" data-title="Starchamber &mdash; FireFall" style="display:none"><img alt="Starchamber, sheet 9 of 9"></a>
+            <p class="credit"><strong>Starchamber</strong> &middot; 9 images</p>
+          </figure>
+        </div>
+      </div>
+
+      <div class="ff-cta">
+        <p>Building something with that Red 5 spirit?</p>
+        <div class="btn-row">
+          <a class="btn" href="mailto:joesoloart@gmail.com">Get in touch</a>
+          <a class="btn ghost" href="#experience">Full resume</a>
+        </div>
+      </div>
     </section>
 
     <hr>
@@ -373,10 +503,11 @@
 
         <div class="role">
           <h4>Red 5 Studios</h4>
+          <p class="when"><span>Jul 2011 &ndash; Nov 2015</span><span>Orange County, California</span></p>
           <span class="shipped">Shipped FireFall</span>
 
           <div class="subrole">
-            <h4>Senior Modeler &middot; Full-time</h4>
+            <h4>Senior Character Artist / Senior Modeler &middot; Full-time</h4>
             <p class="when"><span>Jul 2015 &ndash; Nov 2015</span><span>5 mos</span></p>
           </div>
 
@@ -415,71 +546,7 @@
             <li>Contributed to story and design, working closely with every department, and was part
             of the push for interiors and a campaign with missions.</li>
           </ul>
-
-          <div style="margin-top:22px;aspect-ratio:16/9;border:1px solid var(--cyan-dim);border-radius:4px;overflow:hidden;background:#061a2e">
-            <iframe src="https://www.youtube-nocookie.com/embed/-XEmZsDNCkQ" title="FireFall cinematic trailer" style="width:100%;height:100%;border:0;display:block" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-          <p class="credit"><strong>FireFall cinematic trailer</strong> &middot; Red 5 Studios</p>
-
-          <div class="gallery two">
-        <div class="col">
-          <figure>
-            <a href="assets/work/firefall/ars-001.jpg" data-title="Arsenal battleframe &mdash; FireFall">
-            <img src="assets/work/firefall/ars-001-thumb.jpg" alt="The Arsenal battleframe, a heavy armored suit, front and back views" loading="lazy" width="1100" height="619">
-            <span class="cap">Arsenal battleframe</span>
-          </a>
-            <a href="assets/work/firefall/ars-002.jpg" data-title="Arsenal battleframe &mdash; FireFall" style="display:none"><img alt="Arsenal battleframe, sheet 2 of 10"></a>
-            <a href="assets/work/firefall/ars-003.jpg" data-title="Arsenal battleframe &mdash; FireFall" style="display:none"><img alt="Arsenal battleframe, sheet 3 of 10"></a>
-            <a href="assets/work/firefall/ars-004.jpg" data-title="Arsenal battleframe &mdash; FireFall" style="display:none"><img alt="Arsenal battleframe, sheet 4 of 10"></a>
-            <a href="assets/work/firefall/ars-005.jpg" data-title="Arsenal battleframe &mdash; FireFall" style="display:none"><img alt="Arsenal battleframe, sheet 5 of 10"></a>
-            <a href="assets/work/firefall/ars-006.jpg" data-title="Arsenal battleframe &mdash; FireFall" style="display:none"><img alt="Arsenal battleframe, sheet 6 of 10"></a>
-            <a href="assets/work/firefall/ars-007.jpg" data-title="Arsenal battleframe &mdash; FireFall" style="display:none"><img alt="Arsenal battleframe, sheet 7 of 10"></a>
-            <a href="assets/work/firefall/ars-008.jpg" data-title="Arsenal battleframe &mdash; FireFall" style="display:none"><img alt="Arsenal battleframe, sheet 8 of 10"></a>
-            <a href="assets/work/firefall/ars-009.jpg" data-title="Arsenal battleframe &mdash; FireFall" style="display:none"><img alt="Arsenal battleframe, sheet 9 of 10"></a>
-            <a href="assets/work/firefall/ars-010.jpg" data-title="Arsenal battleframe &mdash; FireFall" style="display:none"><img alt="Arsenal battleframe, sheet 10 of 10"></a>
-            <p class="credit"><strong>Arsenal battleframe</strong> &middot; FireFall, Red 5 Studios &middot; 10 images</p>
-          </figure>
-          <figure>
-            <a href="assets/work/firefall/chosehex-001.jpg" data-title="Head &mdash; FireFall">
-            <img src="assets/work/firefall/chosehex-001-thumb.jpg" alt="A sculpted alien head with pointed ears, two views" loading="lazy" width="1100" height="619">
-            <span class="cap">Head</span>
-          </a>
-            <a href="assets/work/firefall/chosehex-002.jpg" data-title="Head &mdash; FireFall" style="display:none"><img alt="Head, sheet 2 of 5"></a>
-            <a href="assets/work/firefall/chosehex-003.jpg" data-title="Head &mdash; FireFall" style="display:none"><img alt="Head, sheet 3 of 5"></a>
-            <a href="assets/work/firefall/chosehex-004.jpg" data-title="Head &mdash; FireFall" style="display:none"><img alt="Head, sheet 4 of 5"></a>
-            <a href="assets/work/firefall/chosehex-005.jpg" data-title="Head &mdash; FireFall" style="display:none"><img alt="Head, sheet 5 of 5"></a>
-            <p class="credit"><strong>Head</strong> &middot; FireFall, Red 5 Studios &middot; 5 images</p>
-          </figure>
-        </div>
-        <div class="col">
-          <figure>
-            <a href="assets/work/firefall/chosemask-001.jpg" data-title="Masked head &mdash; FireFall">
-            <img src="assets/work/firefall/chosemask-001-thumb.jpg" alt="An alien head in an armored mask with yellow lights, two views" loading="lazy" width="1100" height="619">
-            <span class="cap">Masked head</span>
-          </a>
-            <a href="assets/work/firefall/chosemask-002.jpg" data-title="Masked head &mdash; FireFall" style="display:none"><img alt="Masked head, sheet 2 of 5"></a>
-            <a href="assets/work/firefall/chosemask-003.jpg" data-title="Masked head &mdash; FireFall" style="display:none"><img alt="Masked head, sheet 3 of 5"></a>
-            <a href="assets/work/firefall/chosemask-004.jpg" data-title="Masked head &mdash; FireFall" style="display:none"><img alt="Masked head, sheet 4 of 5"></a>
-            <a href="assets/work/firefall/chosemask-005.jpg" data-title="Masked head &mdash; FireFall" style="display:none"><img alt="Masked head, sheet 5 of 5"></a>
-            <p class="credit"><strong>Masked head</strong> &middot; FireFall, Red 5 Studios &middot; 5 images</p>
-          </figure>
-          <figure>
-            <a href="assets/work/firefall/sc-001.jpg" data-title="Pod &mdash; FireFall">
-            <img src="assets/work/firefall/sc-001-thumb.jpg" alt="An armored pod with yellow lights, closed and open views" loading="lazy" width="1100" height="619">
-            <span class="cap">Pod</span>
-          </a>
-            <a href="assets/work/firefall/sc-002.jpg" data-title="Pod &mdash; FireFall" style="display:none"><img alt="Pod, sheet 2 of 9"></a>
-            <a href="assets/work/firefall/sc-003.jpg" data-title="Pod &mdash; FireFall" style="display:none"><img alt="Pod, sheet 3 of 9"></a>
-            <a href="assets/work/firefall/sc-004.jpg" data-title="Pod &mdash; FireFall" style="display:none"><img alt="Pod, sheet 4 of 9"></a>
-            <a href="assets/work/firefall/sc-005.jpg" data-title="Pod &mdash; FireFall" style="display:none"><img alt="Pod, sheet 5 of 9"></a>
-            <a href="assets/work/firefall/sc-006.jpg" data-title="Pod &mdash; FireFall" style="display:none"><img alt="Pod, sheet 6 of 9"></a>
-            <a href="assets/work/firefall/sc-007.jpg" data-title="Pod &mdash; FireFall" style="display:none"><img alt="Pod, sheet 7 of 9"></a>
-            <a href="assets/work/firefall/sc-008.jpg" data-title="Pod &mdash; FireFall" style="display:none"><img alt="Pod, sheet 8 of 9"></a>
-            <a href="assets/work/firefall/sc-009.jpg" data-title="Pod &mdash; FireFall" style="display:none"><img alt="Pod, sheet 9 of 9"></a>
-            <p class="credit"><strong>Pod</strong> &middot; FireFall, Red 5 Studios &middot; 9 images</p>
-          </figure>
-        </div>
-          </div>
+          <p class="credit"><a href="#firefall">See the FireFall trailer and art &uarr;</a></p>
         </div>
 
       </div>
