@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a Portfolio Review · Joe Solo</title>
+<meta name="description" content="Request a portfolio review from Joe Solo, Principal Character Artist.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56'><rect x='2' y='2' width='52' height='52' rx='4' fill='%230a2540' stroke='%2378beff' stroke-width='4'/><path d='M16 29 L25 38 L41 19' stroke='%234ade80' stroke-width='6' fill='none'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Outfit:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/site.css?v=ca84958">
+<style>
+  .card-page { max-width: 440px; margin: 0 auto; padding: 28px 16px 40px; }
+  .card-bar { display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    padding-bottom: 14px; border-bottom: 1px solid var(--cyan-dim); margin-bottom: 34px; }
+  .card-bar .wordmark { display: inline-flex; align-items: center; gap: 9px; font-size: 17px; color: var(--text-bright); }
+  .card-bar .wordmark:hover { text-decoration: none; }
+  .card-bar .back { font-size: 13px; white-space: nowrap; }
+  .review-head h1 { font-size: 30px; margin: 0 0 8px; line-height: 1.1; }
+  .review-head p { margin: 0 0 26px; font-size: 15px; color: var(--text); }
+  .review-form { display: grid; gap: 16px; }
+  .review-form label { display: grid; gap: 6px; font-size: 14px; color: var(--text-bright); }
+  .review-form label small { color: var(--text-dim); font-size: 13px; }
+  .review-form input, .review-form textarea {
+    width: 100%; padding: 12px 14px; font: inherit; font-size: 16px; color: var(--text-bright);
+    background: rgba(7, 28, 47, 0.72); border: 1px solid var(--cyan-dim); border-radius: 4px; }
+  .review-form textarea { min-height: 120px; resize: vertical; }
+  .review-form input:focus, .review-form textarea:focus { outline: none; border-color: var(--cyan); }
+  .review-form .hp { position: absolute; left: -9999px; }
+  .review-form button { padding: 14px 16px; font: inherit; font-weight: 600; font-size: 16px; cursor: pointer;
+    background: var(--cyan); border: 1px solid var(--cyan); border-radius: 4px; color: #06192b; }
+  .review-form button:hover { background: #a9d4ff; }
+  .review-form button:disabled { opacity: 0.6; cursor: default; }
+  .review-status { margin: 0; font-size: 14px; color: var(--error); }
+  .review-done { padding: 20px 16px; border: 1px solid var(--ready); border-radius: 4px; background: rgba(7, 28, 47, 0.72); }
+  .review-done h2 { margin: 0 0 6px; font-size: 22px; color: var(--text-bright); }
+  .review-done p { margin: 0; font-size: 15px; }
+  .card-foot { border-top: 1px solid var(--cyan-dim); padding-top: 14px; margin-top: 36px; text-align: center; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="card-page">
+
+  <header class="card-bar">
+    <a class="wordmark" href="index.html">
+      <svg width="20" height="20" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+        <rect x="2" y="2" width="52" height="52" rx="4" stroke="#78beff" stroke-width="3"/>
+        <path d="M16 29 L25 38 L41 19" stroke="#4ade80" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>
+      </svg>
+      Joe Solo
+    </a>
+    <a class="back" href="index.html">&larr; Back</a>
+  </header>
+
+  <section class="review-head">
+    <h1>Book a Portfolio Review</h1>
+    <p>Send your details and I'll get back to you by email to set it up.</p>
+  </section>
+
+  <form class="review-form" id="review-form" action="https://formsubmit.co/joesoloart@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="Portfolio review request">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="https://joesolodev.github.io/j/review.html?sent=1">
+    <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <label>Name
+      <input type="text" name="name" autocomplete="name" required maxlength="100">
+    </label>
+    <label>Email
+      <input type="email" name="email" autocomplete="email" required maxlength="200">
+    </label>
+    <label>Portfolio link <small>ArtStation, website, etc. (optional)</small>
+      <input type="url" name="portfolio" placeholder="https://" maxlength="300">
+    </label>
+    <label>Anything I should know? <small>(optional)</small>
+      <textarea name="message" maxlength="2000"></textarea>
+    </label>
+
+    <button type="submit">Request portfolio review</button>
+    <p class="review-status" id="review-status" role="alert" hidden></p>
+  </form>
+
+  <section class="review-done" id="review-done" role="status" hidden>
+    <h2>Request sent</h2>
+    <p>Thanks! I'll reply by email soon. <a href="index.html">Back to my card</a></p>
+  </section>
+
+  <footer class="card-foot"><a href="../index.html">joesolodev.github.io</a></footer>
+
+</div>
+<script>
+  (function () {
+    var form = document.getElementById('review-form');
+    var done = document.getElementById('review-done');
+    var status = document.getElementById('review-status');
+    function showDone() { form.hidden = true; done.hidden = false; }
+
+    // Landing back here after the no-AJAX fallback submit.
+    if (/[?&]sent=1/.test(location.search)) { showDone(); return; }
+    if (!window.fetch || !window.FormData) return; // plain POST still works
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button');
+      var data = {};
+      new FormData(form).forEach(function (v, k) { if (k !== '_next') data[k] = v; });
+      btn.disabled = true; btn.textContent = 'Sending…'; status.hidden = true;
+      fetch('https://formsubmit.co/ajax/joesoloart@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+        .then(function (res) {
+          if (!res.ok || String(res.j.success) !== 'true') throw new Error();
+          showDone();
+        })
+        .catch(function () {
+          btn.disabled = false; btn.textContent = 'Request portfolio review';
+          status.textContent = "That didn't send. Try again, or email joesoloart@gmail.com directly.";
+          status.hidden = false;
+        });
+    });
+  })();
+</script>
+</body>
+</html>
