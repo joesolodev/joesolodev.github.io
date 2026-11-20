@@ -19,6 +19,11 @@
   .card-bar .back { font-size: 13px; white-space: nowrap; }
   .review-head h1 { font-size: 30px; margin: 0 0 8px; line-height: 1.1; }
   .review-head p { margin: 0 0 26px; font-size: 15px; color: var(--text); }
+  .review-head .review-rate { display: flex; align-items: baseline; gap: 10px; margin: 0 0 8px;
+    padding: 10px 14px; border: 1px solid var(--cyan-dim); border-radius: 4px; background: rgba(7, 28, 47, 0.72);
+    color: var(--text-dim); }
+  .review-rate strong { font-size: 24px; font-weight: 600; color: var(--text-bright); }
+  .review-head .review-billing { margin: 0 0 18px; font-size: 13px; color: var(--text-dim); }
   .review-form { display: grid; gap: 16px; }
   .review-form label { display: grid; gap: 6px; font-size: 14px; color: var(--text-bright); }
   .review-form label small { color: var(--text-dim); font-size: 13px; }
@@ -55,6 +60,8 @@
 
   <section class="review-head">
     <h1>Book a Portfolio Review</h1>
+    <p class="review-rate"><strong>$75</strong> <span>up to 65 minutes</span></p>
+    <p class="review-billing">Billed right before each booked session. Venmo or PayPal.</p>
     <p>Send your details and I'll get back to you by email to set it up.</p>
   </section>
 
